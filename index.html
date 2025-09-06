@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DevHive — We Buzz Ideas Into Reality</title>
+  <meta name="description" content="DevHive builds mobile apps, websites, and project documentation. Affordable pricing, on-time delivery, and quality work guaranteed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --honey:#F5B301;
+      --honey-dark:#D89A00;
+      --charcoal:#111111;
+      --cream:#FFF8E1;
+      --white:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;color:var(--charcoal);background:var(--white);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 20px}
+    /* Navbar */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #f1f1f1}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand .logo{width:42px;height:42px;background:var(--honey);border-radius:50%;display:grid;place-items:center;box-shadow:0 6px 18px rgba(245,179,1,.35)}
+    .brand .logo svg{width:26px;height:26px}
+    .brand span{font-size:1.2rem}
+    .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+    .nav a{font-weight:600;opacity:.9}
+    .btn{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:14px;padding:12px 18px;font-weight:700;cursor:pointer}
+    .btn.honey{background:var(--honey);color:#000;box-shadow:0 10px 24px rgba(245,179,1,.45)}
+    .btn.honey:hover{background:var(--honey-dark)}
+    .btn.ghost{background:transparent;border:2px solid var(--charcoal)}
+    /* Hero */
+    .hero{position:relative;background:linear-gradient(180deg, var(--honey) 0%, #ffcf53 100%);padding:80px 0 60px;color:#000;overflow:hidden}
+    .hero::after{content:"";position:absolute;inset:-120px -120px auto auto;width:540px;height:540px;background:radial-gradient(circle at center,rgba(255,255,255,.45),rgba(255,255,255,0));border-radius:50%;filter:blur(6px)}
+    .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+    .tag{display:inline-block;background:#000;color:#fff;padding:6px 12px;border-radius:999px;font-size:.8rem;font-weight:700;letter-spacing:.4px}
+    h1{font-size:3rem;line-height:1.1;margin:.5rem 0 1rem;font-weight:800}
+    .sub{font-size:1.05rem;opacity:.95;margin-bottom:1.2rem}
+    .stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px}
+    .chip{background:#000;color:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:.85rem}
+    .hero-card{background:var(--white);border-radius:24px;padding:24px;box-shadow:0 12px 32px rgba(0,0,0,.12);}
+    .bee-badge{display:inline-flex;align-items:center;gap:10px;font-weight:700}
+    /* Sections */
+    section{padding:70px 0}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+    .hex{width:14px;height:14px;background:var(--honey);clip-path:polygon(25% 6.7%,75% 6.7%,100% 50%,75% 93.3%,25% 93.3%,0 50%)}
+    h2{margin:0;font-size:2rem}
+    /* Services */
+    .grid{display:grid;gap:18px}
+    .services{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:#fff;border-radius:18px;padding:22px;border:1px solid #f2f2f2;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    .card h3{margin:0 0 6px}
+    .card p{margin:.25rem 0 1rem}
+    .card .pill{display:inline-block;background:var(--cream);border:1px dashed var(--honey-dark);border-radius:999px;padding:6px 10px;font-size:.8rem;font-weight:700}
+    .card .cta{margin-top:12px}
+    /* Booking */
+    .booking{background:linear-gradient(180deg,#fff 0,#fff7d1 100%);border-top:1px solid #f3e7b5;border-bottom:1px solid #f3e7b5}
+    form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    label{font-size:.9rem;font-weight:600}
+    input,select,textarea{width:100%;padding:12px 12px;border:1.5px solid #e9e9e9;border-radius:12px;font:inherit}
+    textarea{min-height:120px}
+    .full{grid-column:1/-1}
+    .note{font-size:.85rem;opacity:.8}
+    /* Footer */
+    footer{background:#000;color:#fff;padding:40px 0}
+    footer a{color:#fff;opacity:.9}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
+    .copyright{margin-top:16px;opacity:.7}
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr 1fr}
+      .foot-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      h1{font-size:2.2rem}
+      .services{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+      .nav ul{display:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <span class="logo">
+          🐝
+        </span>
+        <span>DevHive</span>
+      </a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#booking" class="btn honey">Book a Service</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">We Buzz Ideas Into Reality</span>
+        <h1>Design, Build & Launch your next digital product with DevHive</h1>
+        <p class="sub">A hive of developers and writers crafting standout mobile apps, websites, and project documentation.</p>
+        <a href="#booking" class="btn honey">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title"><span class="hex"></span><h2>Our Services</h2></div>
+      <div class="grid services">
+        <article class="card">
+          <div class="pill">Mobile App Development</div>
+          <h3>Android & Cross-platform Apps</h3>
+          <p>Secure, user-friendly and scalable mobile solutions.</p>
+        </article>
+        <article class="card">
+          <div class="pill">Website Development</div>
+          <h3>Modern, Responsive Websites</h3>
+          <p>Professional websites that look great on all devices.</p>
+        </article>
+        <article class="card">
+          <div class="pill">Project Write-ups</div>
+          <h3>Reports & Documentation</h3>
+          <p>Well-structured, plagiarism-free academic/professional docs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title"><span class="hex"></span><h2>Portfolio</h2></div>
+      <div class="grid services">
+        <article class="card">
+          <div class="pill">Web Project</div>
+          <h3>Standard Laundry Wash</h3>
+          <a href="https://lordhope042.github.io/Standard_Laundry_wash/" target="_blank" class="btn honey cta">View Project</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="booking">
+    <div class="container">
+      <div class="section-title"><span class="hex"></span><h2>Book a Service</h2></div>
+      <form id="bookingForm">
+        <div>
+          <label for="fullName">Full Name</label>
+          <input id="fullName" name="fullName" required />
+        </div>
+        <div>
+          <label for="phone">Phone / WhatsApp</label>
+          <input id="phone" name="phone" required />
+        </div>
+        <div class="full">
+          <label for="details">Project Details</label>
+          <textarea id="details" name="details"></textarea>
+        </div>
+        <div class="full">
+          <button class="btn honey" type="submit">Confirm on WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container foot-grid">
+      <div>
+        <h3>DevHive</h3>
+        <p>Where ideas buzz into reality 🐝</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>📧 <a href="mailto:devhiveee@gmail.com">devhiveee@gmail.com</a></p>
+        <p>📞 09123697586, 09044883463</p>
+        <p>💬 <a href="https://wa.me/2349044883463" target="_blank">Chat on WhatsApp</a></p>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <p>
+          <a href="https://www.facebook.com/share/1YYmkiwz8w/" target="_blank">Facebook</a><br>
+          <a href="https://www.tiktok.com/@dev.hive" target="_blank">TikTok</a><br>
+          <a href="https://github.com/lordhope042" target="_blank">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <p class="container copyright">© 2025 DevHive. All rights reserved.</p>
+  </footer>
+
+  <!-- JS for WhatsApp redirection -->
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const name=document.getElementById("fullName").value;
+      const phone=document.getElementById("phone").value;
+      const details=document.getElementById("details").value;
+      const now=new Date();
+      const sec=now.getSeconds();
+      const number=sec%2===0?"2349123697586":"2349044883463";
+      const msg=`Hello DevHive, my name is ${name}. My phone: ${phone}. Project: ${details}`;
+      window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`,"_blank");
+    });
+  </script>
+</body>
